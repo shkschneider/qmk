@@ -1,17 +1,3 @@
-/*
-* cat qmk_firmware/keyboards/xd60/rev3/config.h qmk_firmware/keyboards/xd60/rev3/rules.mk
-* cp -r qmk_firmware/keyboards/xd60/keymaps/default qmk_firmware/keyboards/xd60/keymaps/shkschneider
-* nano qmk_firmware/keyboards/xd60/rev3/rules.mk
-* - EXTRAKEY_ENABLE = yes # media
-* - MOUSEKEY_ENABLE = yes # mouse
-* - UNICODE_ENABLE = yes # unicode
-* nano qmk_firmware/keyboards/xd60/rev3/config.h
-* - #define MOUSEKEY_*
-* nano qmk_firmware/keyboards/xd60/keymaps/shkschneider/keymap.c
-* make xd60/rev3:shkschneider
-* qmk flash -kb xd60/rev3 -km shkschneider
-*/
-
 #include QMK_KEYBOARD_H
 
 enum {

@@ -19,5 +19,3 @@
 make <KB>:shkschneider
 qmk flash -kb <KB> -km shkschneider
 ```
-
-This project does link _qmk_firmware_ for convenience, but make sure to have it up-to-date.

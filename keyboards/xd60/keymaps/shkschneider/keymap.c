@@ -64,12 +64,12 @@ void matrix_scan_user(void) {
     uint8_t layer = biton32(layer_state);
     switch (layer) {
         case 0: rgblight_setrgb(RGB_RED); break;
-        case 1: rgblight_setrgb(RGB_RED); break;
+        case 1: rgblight_setrgb(RGB_ORANGE); break;
         case 2: rgblight_setrgb(RGB_BLUE); break;
         case 3: rgblight_setrgb(RGB_YELLOW); break;
     }
-#endif
 }
+#endif
 
 // https://beta.docs.qmk.fm/using-qmk/advanced-keycodes/feature_macros
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
@@ -87,7 +87,9 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        // MO+TG could be conflicting if MO was released but TG was switched on...
         case MO(1):
+            // This ensures no matter if TG is on or off, once MO is released, layer 0 is restored.
             if (!record->event.pressed) {
                 layer_move(0);
                 return false;
